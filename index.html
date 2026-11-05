@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма учасника незалежного тестування</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Ефект скла для контейнера форми */
+        .form-container {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 16px;
+            padding: 15px 25px;
+            width: 520px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            max-height: 95vh;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            color: #ffffff;
+            text-align: center;
+            font-size: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 8px;
+        }
+
+        label {
+            font-weight: 600;
+            color: #f0f4f8;
+            font-size: 11px;
+            display: inline-block;
+            margin-bottom: 2px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        input[type="text"] {
+            padding: 4px 6px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 6px;
+            width: 100%;
+            font-size: 11px;
+            background: rgba(255, 255, 255, 0.6);
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        input::placeholder {
+            color: #777;
+            font-size: 10px;
+        }
+
+        input[type="text"]:focus {
+            background: rgba(255, 255, 255, 0.85);
+            border-color: #ffffff;
+        }
+
+        .date-inputs {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .date-field {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .date-inputs input[type="text"] {
+            width: 50px;
+            text-align: center;
+        }
+
+        .date-inputs span {
+            font-size: 11px;
+            font-weight: bold;
+            color: #f0f4f8;
+        }
+
+        select {
+            padding: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 6px;
+            background-color: rgba(255, 255, 255, 0.6);
+            width: 100%;
+            font-size: 11px;
+            outline: none;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px 10px;
+        }
+
+        .checkbox-group label {
+            font-weight: normal;
+            font-style: italic;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 2px;
+            color: #ffffff;
+        }
+
+        .checkbox-group input {
+            margin-right: 5px;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 12px;
+        }
+
+        button {
+            background-color: rgba(20, 40, 70, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            padding: 6px 24px;
+            font-weight: bold;
+            color: #ffffff;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: rgba(30, 60, 100, 0.95);
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Форма учасника незалежного тестування</h2>
+    <form action="thanks.html" method="GET">
+        <div class="form-group">
+            <label>Прізвище</label>
+            <input type="text" name="surname" required>
+        </div>
+
+        <div class="form-group">
+            <label>Ім'я</label>
+            <input type="text" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label>По батькові</label>
+            <input type="text" name="middlename" required>
+        </div>
+
+        <div class="form-group">
+            <label>Стать:</label><br>
+            <input type="radio" id="female" name="gender" value="female" required>
+            <label for="female" style="font-weight: normal; font-style: normal; display: inline; margin-right: 15px; font-size: 11px;">жіноча</label>
+            
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male" style="font-weight: normal; font-style: normal; display: inline; font-size: 11px;">чоловіча</label>
+        </div>
+
+        <div class="form-group">
+            <label>Дата народження:</label>
+            <div class="date-inputs">
+                <div class="date-field"><span>Число</span> <input type="number" name="day" placeholder="ДД" min="1" max="31" required></div>
+                <div class="date-field"><span>Місяць</span> <input type="number" name="month" placeholder="ММ" min="1" max="12" required></div>
+                <div class="date-field"><span>Рік</span> <input type="number" name="year" placeholder="РРРР" min="1900" max="2026" required></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Область:</label>
+            <select name="region">
+                <option value="vinnitska">Вінницька</option>
+                <option value="volynska">Волинська</option>
+                <option value="cherkaska">Черкаська</option>
+                <option value="zhytomyrska">Житомирська</option>
+                <option value="zakarpatska">Закарпатська</option>
+                <option value="zaporizka">Запорізька</option>
+                <option value="ivano-frankivska">Івано-Франківська</option>
+                <option value="kyivska">Київська</option>
+                <option value="kirovohradska">Кіровоградська</option>
+                <option value="lvivska">Львівська</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Оберіть предмети тестування (оберіть хоча б один):</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="subject" value="math"> математика</label>
+                <label><input type="checkbox" name="subject" value="ukr_lang"> українська мова та література</label>
+                <label><input type="checkbox" name="subject" value="history"> історія України</label>
+                <label><input type="checkbox" name="subject" value="physics"> фізика</label>
+                <label><input type="checkbox" name="subject" value="geography"> географія</label>
+                <label><input type="checkbox" name="subject" value="biology"> біологія</label>
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <button type="submit">Опрацювати</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
